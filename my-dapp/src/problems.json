@@ -1,0 +1,184 @@
+[
+    {
+      "id": 1947831,
+      "requirement": "Write a function that takes two numbers and returns their sum.",
+      "testCases": [
+        { "input": [2, 3], "expected": 5 },
+        { "input": [10, 5], "expected": 15 },
+        { "input": [0, 0], "expected": 0 },
+        { "input": [-5, 5], "expected": 0 },
+        { "input": [100, 200], "expected": 300 },
+        { "input": [1.5, 2.5], "expected": 4 },
+        { "input": [-1.5, -2.5], "expected": -4 },
+        { "input": [999, 1], "expected": 1000 },
+        { "input": [123456, 654321], "expected": 777777 },
+        { "input": [3.33, 4.56], "expected": 7.89 }
+      ],
+      "bestTimeMs": 20,
+      "maxReward": 10
+    },
+    {
+      "id": 8237087,
+      "requirement": "Write a function that reverses a string.",
+      "testCases": [
+        { "input": ["hello"], "expected": "olleh" },
+        { "input": ["world"], "expected": "dlrow" },
+        { "input": [""], "expected": "" },
+        { "input": ["a"], "expected": "a" },
+        { "input": ["abcdef"], "expected": "fedcba" },
+        { "input": ["racecar"], "expected": "racecar" },
+        { "input": ["12345"], "expected": "54321" },
+        { "input": ["Hello World!"], "expected": "!dlroW olleH" },
+        { "input": ["!@#$%^&*()"], "expected": ")(*&^%$#@!" },
+        { "input": ["longlonglongstring"], "expected": "gnirtsgnolgnolgnol" }
+      ],
+      "bestTimeMs": 50,
+      "maxReward": 20
+    },
+    {
+      "id": 4576808,
+      "requirement": "Write a function that checks if a number is prime.",
+      "testCases": [
+        { "input": [2], "expected": true },
+        { "input": [3], "expected": true },
+        { "input": [4], "expected": false },
+        { "input": [11], "expected": true },
+        { "input": [15], "expected": false },
+        { "input": [1], "expected": false },
+        { "input": [97], "expected": true },
+        { "input": [100], "expected": false },
+        { "input": [7919], "expected": true },
+        { "input": [104729], "expected": true }
+      ],
+      "bestTimeMs": 150,
+      "maxReward": 100
+    },
+    {
+      "id": 8695457,
+      "requirement": "Write a function that returns the factorial of a number.",
+      "testCases": [
+        { "input": [0], "expected": 1 },
+        { "input": [1], "expected": 1 },
+        { "input": [2], "expected": 2 },
+        { "input": [3], "expected": 6 },
+        { "input": [5], "expected": 120 },
+        { "input": [7], "expected": 5040 },
+        { "input": [10], "expected": 3628800 },
+        { "input": [12], "expected": 479001600 },
+        { "input": [15], "expected": 1307674368000 },
+        { "input": [20], "expected": 2432902008176640000 }
+      ],
+      "bestTimeMs": 100,
+      "maxReward": 50
+    },
+    {
+      "id": 7587698,
+      "requirement": "Write a function that finds the largest number in an array.",
+      "testCases": [
+        { "input": [[1, 2, 3]], "expected": 3 },
+        { "input": [[10, 5, 20]], "expected": 20 },
+        { "input": [[-5, -1, -10]], "expected": -1 },
+        { "input": [[100]], "expected": 100 },
+        { "input": [[3, 3, 3]], "expected": 3 },
+        { "input": [[0, 0, 0]], "expected": 0 },
+        { "input": [[1, 2, 3, 4, 5]], "expected": 5 },
+        { "input": [[99, 100, 98]], "expected": 100 },
+        { "input": [[-100, 0, 50]], "expected": 50 },
+        { "input": [[999, 888, 777, 1000]], "expected": 1000 }
+      ],
+      "bestTimeMs": 50,
+      "maxReward": 70
+    },
+    {
+      "id": 176872,
+      "requirement": "Write a function that calculates the nth Fibonacci number.",
+      "testCases": [
+        { "input": [0], "expected": 0 },
+        { "input": [1], "expected": 1 },
+        { "input": [2], "expected": 1 },
+        { "input": [3], "expected": 2 },
+        { "input": [5], "expected": 5 },
+        { "input": [7], "expected": 13 },
+        { "input": [10], "expected": 55 },
+        { "input": [15], "expected": 610 },
+        { "input": [20], "expected": 6765 },
+        { "input": [30], "expected": 832040 }
+      ],
+      "bestTimeMs": 200,
+      "maxReward": 40
+    },
+    {
+      "id": 2415425,
+      "requirement": "Write a function that checks if a string is a palindrome.",
+      "testCases": [
+        { "input": ["madam"], "expected": true },
+        { "input": ["racecar"], "expected": true },
+        { "input": ["hello"], "expected": false },
+        { "input": [""], "expected": true },
+        { "input": ["a"], "expected": true },
+        { "input": ["ab"], "expected": false },
+        { "input": ["abcba"], "expected": true },
+        { "input": ["abcd"], "expected": false },
+        { "input": ["12321"], "expected": true },
+        { "input": ["12345"], "expected": false }
+      ],
+      "bestTimeMs": 80,
+      "maxReward": 100
+    },
+    {
+      "id": 797563,
+      "requirement": "Write a function that calculates the sum of all elements in an array.",
+      "testCases": [
+        { "input": [[1, 2, 3]], "expected": 6 },
+        { "input": [[-1, -2, -3]], "expected": -6 },
+        { "input": [[0, 0, 0]], "expected": 0 },
+        { "input": [[100]], "expected": 100 },
+        { "input": [[5, 5, 5, 5]], "expected": 20 },
+        { "input": [[1.5, 2.5, 3.5]], "expected": 7.5 },
+        { "input": [[-1.5, -2.5, -3.5]], "expected": -7.5 },
+        { "input": [[10, 20, 30, 40]], "expected": 100 },
+        { "input": [[123, 456, 789]], "expected": 1368 },
+        { "input": [[0, 1]], "expected": 1 }
+      ],
+      "bestTimeMs": 30,
+      "maxReward": 50
+    },
+    {
+      "id": 289137,
+      "requirement": "Write a function that sorts an array in ascending order.",
+      "testCases": [
+        { "input": [[3, 1, 2]], "expected": [1, 2, 3] },
+        { "input": [[10, 5, 20]], "expected": [5, 10, 20] },
+        { "input": [[-5, -1, -10]], "expected": [-10, -5, -1] },
+        { "input": [[100]], "expected": [100] },
+        { "input": [[3, 3, 3]], "expected": [3, 3, 3] },
+        { "input": [[0, 0, 0]], "expected": [0, 0, 0] },
+        { "input": [[1, 2, 3, 4, 5]], "expected": [1, 2, 3, 4, 5] },
+        { "input": [[99, 100, 98]], "expected": [98, 99, 100] },
+        { "input": [[-100, 0, 50]], "expected": [-100, 0, 50] },
+        { "input": [[999, 888, 777, 1000]], "expected": [777, 888, 999, 1000] }
+      ],
+      "bestTimeMs": 70,
+      "maxReward": 150
+    },
+    {
+      "id": 295642,
+      "requirement": "Write a function that removes duplicates from an array.",
+      "testCases": [
+        { "input": [[1, 1, 2, 2, 3, 3]], "expected": [1, 2, 3] },
+        { "input": [[4, 5, 6, 6, 5, 4]], "expected": [4, 5, 6] },
+        { "input": [[0, 0, 0, 0]], "expected": [0] },
+        { "input": [[100, 200, 300]], "expected": [100, 200, 300] },
+        { "input": [[-1, -2, -2, -3]], "expected": [-1, -2, -3] },
+        { "input": [["a", "b", "b", "a"]], "expected": ["a", "b"] },
+        { "input": [[1, 2, 3, 1, 2, 3, 4]], "expected": [1, 2, 3, 4] },
+        { "input": [[5, 5, 5, 5, 5]], "expected": [5] },
+        { "input": [[10, 20, 30, 10, 20]], "expected": [10, 20, 30] },
+        { "input": [[999, 999, 1000, 1000, 1000]], "expected": [999, 1000] }
+      ],
+      "bestTimeMs": 90,
+      "maxReward": 50
+    }
+  ]
+  
+  
