@@ -25,8 +25,6 @@ contract MyContract {
     // Constructor to set the initial message and total supply
     constructor(string memory _message) {
         message = _message;
-        totalSupply = 1000000 * (10 ** uint256(decimals)); // 1 million tokens
-        balanceOf[msg.sender] = totalSupply; // Assign all tokens to the contract deployer's address
     }
 
     // Function to update the message
@@ -118,9 +116,12 @@ contract MyContract {
         return problemsSolved[user];
     }
 
-    function calculateEthToLeet(uint256 ethAmount, uint256 ethPriceInUSD) public pure returns (uint256) {
+    function calculateEthToLeet(uint256 gweiAmount, uint256 ethPriceInUSD) public pure returns (uint256) {
         // Convert ETH to LEET where 1 LEET = 1 cent (0.01 USD)
-        uint256 leetAmount = ethAmount * ethPriceInUSD * 100;
+        uint256 ethAmount = gweiAmount / 10 ** 18;
+        uint256 leetUnits = ethAmount * 10 ** 5;
+        uint256 leetValueInUSD = leetUnits * 100;
+        uint256 leetAmount = ethAmount * ethPriceInUSD * leetValueInUSD;
         return leetAmount;
     }
 

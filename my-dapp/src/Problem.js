@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import { Box, Typography, TextField, Button, CircularProgress, Paper } from '@mui/material';
 import problems from './problems.json'; // Import the JSON file with problems
 import { ethers } from 'ethers';
 
@@ -88,7 +89,7 @@ const Problem = ({ contract, signer, maxGasCost, updateBalance, walletAddress })
             const endTime = performance.now(); // End time
 
             // Calculate execution time
-            const timeTaken = 10;
+            const timeTaken = 100;
 
             // Display results
             if (allTestsPassed) {
@@ -170,51 +171,63 @@ const Problem = ({ contract, signer, maxGasCost, updateBalance, walletAddress })
     };
 
     return (
-        <div id="container" style={{ padding: '20px', fontFamily: 'Arial, sans-serif' }}>
+        <Box sx={{ padding: 4, fontFamily: 'Arial, sans-serif' }}>
             {problem ? (
-                <>
-                    <h3>Problem: {problem.requirement}</h3>
-                    <textarea
+                <Paper sx={{ padding: 3, boxShadow: 3 }}>
+                    <Typography variant="h4" gutterBottom>
+                        Problem: {problem.requirement}
+                    </Typography>
+                    <TextField
                         id="codeBox"
                         value={userCode}
                         onChange={(e) => setUserCode(e.target.value)}
                         placeholder="Enter JavaScript code here..."
-                        style={{ width: '100%', height: '100px', marginBottom: '10px' }}
+                        multiline
+                        rows={4}
+                        fullWidth
+                        sx={{ marginBottom: 2 }}
                     />
-                    <br />
-                    <button id="runButton" onClick={runTests}>
+                    <Button variant="contained" color="primary" onClick={runTests} sx={{ marginBottom: 2 }}>
                         Run Tests
-                    </button>
-                    <div id="result" style={{ marginTop: '10px', whiteSpace: 'pre-wrap' }}>
-                        {result}
+                    </Button>
+                    <Box sx={{ marginTop: 2, whiteSpace: 'pre-wrap' }}>
+                        <Typography variant="body1">{result}</Typography>
                         {executionTime !== null && status === 'passed' && (
-                            <div>
+                            <Typography variant="body2" color="textSecondary">
                                 Execution Time: {executionTime} ms
-                            </div>
+                            </Typography>
                         )}
-                    </div>
+                    </Box>
 
                     {rewardAmount && !hasClaimedReward && (
-                        <div id="rewardInfo" style={{ marginTop: '20px' }}>
-                            <p>Reward Amount: {rewardAmount} LEET</p>
-                            <p>Estimated Gas: {ethers.formatUnits(gasEstimate, 'gwei')} gwei</p>
-                            <button onClick={claimReward} disabled={hasClaimedReward}>
+                        <Box sx={{ marginTop: 4 }}>
+                            <Typography variant="h6">Reward Amount: {rewardAmount} LEET</Typography>
+                            <Typography variant="body1">Estimated Gas: {ethers.formatUnits(gasEstimate, 'gwei')} gwei</Typography>
+                            <Button
+                                variant="contained"
+                                color="secondary"
+                                onClick={claimReward}
+                                disabled={hasClaimedReward}
+                                sx={{ marginTop: 2 }}
+                            >
                                 Claim Reward
-                            </button>
-                        </div>
+                            </Button>
+                        </Box>
                     )}
 
                     {isProblemSolved && !hasClaimedReward && (
-                        <div>
-                            <h4>You've already solved this problem!</h4>
-                            <p>Previous Solving Time: {userLowestTime} ms</p>
-                        </div>
+                        <Box sx={{ marginTop: 4 }}>
+                            <Typography variant="h5" color="success.main">
+                                You've already solved this problem!
+                            </Typography>
+                            <Typography variant="body1">Best Solving Time: {userLowestTime} ms</Typography>
+                        </Box>
                     )}
-                </>
+                </Paper>
             ) : (
-                <p>Loading problem...</p>
+                <CircularProgress />
             )}
-        </div>
+        </Box>
     );
 };
 

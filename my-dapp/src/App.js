@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import ProblemList from './ProblemList'; // Component that lists problems
-import Problem from './Problem'; // Component that shows a single problem
-import Activity from './Activity'; // Import the Activity component
-import problems from './problems.json'; // Import the problems
 import { ethers } from 'ethers';
-import Header from './Header'; // Import the Header component
+import SwapTransfer from './SwapTransfer'; // Import the SwapTransfer component
+import ProblemList from './ProblemList';
+import Problem from './Problem';
+import Activity from './Activity';
+import problems from './problems.json';
+import Header from './Header';
 
 const contractAddress = '0x5FbDB2315678afecb367f032d93F642f64180aa3';  // Replace with your actual contract address
 const contractABI = [
@@ -23,7 +24,7 @@ const App = () => {
   const [tokenBalance, setTokenBalance] = useState(null); // For LEET token balance
   const [signer, setSigner] = useState(null);
   const [contract, setContract] = useState(null);
-  const [maxGasCost, setMaxGasCost] = useState(0.000034361);
+  const [maxGasCost, setMaxGasCost] = useState(0.00034361);
 
   useEffect(() => {
     const initWallet = async () => {
@@ -68,11 +69,12 @@ const App = () => {
       // Fetch ETH balance
       const provider = signer.provider;
       const ethBal = await provider.getBalance(walletAddress);
-      setEthBalance(ethers.formatEther(ethBal));
-
+      const formattedEthBal = ethers.formatEther(ethBal);
+      const roundedEthBal = parseFloat(formattedEthBal).toFixed(2); // Round to 2 decimals
+      setEthBalance(roundedEthBal);
       // Fetch LEET token balance
       const leetBal = await contract['balanceOf(address)'](walletAddress);
-      const formattedLeetBal = ethers.formatUnits(leetBal, 5); // Assuming 5 decimal places for LEET token
+      const formattedLeetBal = ethers.formatUnits(leetBal, 5); // Assuming 4 decimal places for LEET token
       setTokenBalance(formattedLeetBal);
     } catch (err) {
       console.error("Error fetching balances:", err);
@@ -93,22 +95,23 @@ const App = () => {
         contract={contract}
         signer={signer}
         maxGasCost={maxGasCost}
-        updateBalance={updateBalances} // Pass the function to update balances
+        updateBalance={updateBalances}
         changeMaxGasCost={changeMaxGasCost}
       />
       <Routes>
-        <Route
-          path="/problem/:id"
-          element={<Problem contract={contract} signer={signer} maxGasCost={maxGasCost} updateBalance={updateBalances} walletAddress={walletAddress} />}
-        />
-        <Route
-          path="/activity"
-          element={<Activity contract={contract} />}
-        />
-        <Route
-          path="/"
-          element={<ProblemList problems={problems} walletAddress={walletAddress} contract={contract} />}
-        />
+        <Route path="/swap-transfer" element={<SwapTransfer
+          walletAddress={walletAddress}
+          ethBalance={ethBalance}
+          tokenBalance={tokenBalance}
+          contract={contract}
+          signer={signer}
+          maxGasCost={maxGasCost}
+          updateBalance={updateBalances}
+          changeMaxGasCost={changeMaxGasCost}
+        />} />
+        <Route path="/problem/:id" element={<Problem contract={contract} signer={signer} maxGasCost={maxGasCost} updateBalance={updateBalances} walletAddress={walletAddress} />} />
+        <Route path="/activity" element={<Activity contract={contract} />} />
+        <Route path="/" element={<ProblemList problems={problems} walletAddress={walletAddress} contract={contract} />} />
       </Routes>
     </Router>
   );

@@ -1,7 +1,7 @@
 [
     {
       "id": 1947831,
-      "requirement": "Write a function that takes two numbers and returns their sum.",
+      "requirement": "Write a function that takes two numbers as input parameters and returns their sum as the output. The function should handle both integer and floating-point numbers. The function should work for a wide range of numbers, including negative numbers and very large numbers. The function should also account for edge cases, such as when one or both of the numbers are zero.",
       "testCases": [
         { "input": [2, 3], "expected": 5 },
         { "input": [10, 5], "expected": 15 },
@@ -19,7 +19,7 @@
     },
     {
       "id": 8237087,
-      "requirement": "Write a function that reverses a string.",
+      "requirement": "Write a function that takes a string as input and returns the string reversed. The function should handle all edge cases, including empty strings, single-character strings, and strings with special characters. The function should return the reversed string without modifying the original string, meaning the function should not modify the input string directly.",
       "testCases": [
         { "input": ["hello"], "expected": "olleh" },
         { "input": ["world"], "expected": "dlrow" },
@@ -37,7 +37,7 @@
     },
     {
       "id": 4576808,
-      "requirement": "Write a function that checks if a number is prime.",
+      "requirement": "Write a function that checks if a given number is prime. A prime number is a number greater than 1 that is only divisible by 1 and itself. The function should return true if the number is prime and false otherwise. The function should be optimized to check larger numbers efficiently and handle edge cases, such as when the input is less than 2.",
       "testCases": [
         { "input": [2], "expected": true },
         { "input": [3], "expected": true },
@@ -55,7 +55,7 @@
     },
     {
       "id": 8695457,
-      "requirement": "Write a function that returns the factorial of a number.",
+      "requirement": "Write a function that calculates the factorial of a given number. The factorial of a number n is the product of all positive integers less than or equal to n. The function should handle both small and large numbers efficiently. The function should also handle edge cases, such as when the input is zero (the factorial of zero is 1).",
       "testCases": [
         { "input": [0], "expected": 1 },
         { "input": [1], "expected": 1 },
@@ -73,7 +73,7 @@
     },
     {
       "id": 7587698,
-      "requirement": "Write a function that finds the largest number in an array.",
+      "requirement": "Write a function that takes an array of numbers as input and returns the largest number in the array. The function should handle arrays with both positive and negative numbers. If the array contains only one element, the function should return that element. The function should also account for edge cases, such as when the array contains all identical numbers.Write a function that finds the largest number in an array.",
       "testCases": [
         { "input": [[1, 2, 3]], "expected": 3 },
         { "input": [[10, 5, 20]], "expected": 20 },
@@ -91,7 +91,7 @@
     },
     {
       "id": 176872,
-      "requirement": "Write a function that calculates the nth Fibonacci number.",
+      "requirement": "Write a function that calculates the nth Fibonacci number. The function should use an iterative approach to efficiently calculate the result. The function should return the nth Fibonacci number as an integer, where n is a non-negative integer. The Fibonacci sequence is defined as follows: F(0) = 0, F(1) = 1, and for n ≥ 2, F(n) = F(n-1) + F(n-2). The function should be optimized to handle large input values efficiently without running into performance issues.",
       "testCases": [
         { "input": [0], "expected": 0 },
         { "input": [1], "expected": 1 },
@@ -109,7 +109,7 @@
     },
     {
       "id": 2415425,
-      "requirement": "Write a function that checks if a string is a palindrome.",
+      "requirement": "Write a function that checks if a given string is a palindrome. A palindrome is a string that reads the same forwards and backwards, ignoring spaces, punctuation, and capitalization. The function should return true if the string is a palindrome and false otherwise. The function should handle edge cases, such as empty strings, strings with special characters, and strings with mixed case letters.",
       "testCases": [
         { "input": ["madam"], "expected": true },
         { "input": ["racecar"], "expected": true },
@@ -127,7 +127,7 @@
     },
     {
       "id": 797563,
-      "requirement": "Write a function that calculates the sum of all elements in an array.",
+      "requirement": "Write a function that calculates the sum of all elements in an array of numbers. The function should handle both positive and negative numbers, and also account for floating-point numbers. The function should return the sum of the elements as a number. It should handle edge cases, such as when the array is empty or contains only one element.",
       "testCases": [
         { "input": [[1, 2, 3]], "expected": 6 },
         { "input": [[-1, -2, -3]], "expected": -6 },
@@ -145,7 +145,7 @@
     },
     {
       "id": 289137,
-      "requirement": "Write a function that sorts an array in ascending order.",
+      "requirement": "Write a function that sorts an array of numbers in ascending order. The function should implement the quicksort or mergesort algorithm, both of which are efficient sorting algorithms. The function should return a sorted array of numbers. The function should handle arrays of various sizes and contain checks for edge cases, such as when the array is already sorted or contains duplicate values.",
       "testCases": [
         { "input": [[3, 1, 2]], "expected": [1, 2, 3] },
         { "input": [[10, 5, 20]], "expected": [5, 10, 20] },
@@ -163,7 +163,7 @@
     },
     {
       "id": 295642,
-      "requirement": "Write a function that removes duplicates from an array.",
+      "requirement": "Write a function that removes all duplicate values from an array of numbers. The function should return a new array with unique values. It should maintain the original order of the elements in the array and handle both positive and negative numbers. The function should handle edge cases, such as when the array contains all identical elements or when the array is empty.",
       "testCases": [
         { "input": [[1, 1, 2, 2, 3, 3]], "expected": [1, 2, 3] },
         { "input": [[4, 5, 6, 6, 5, 4]], "expected": [4, 5, 6] },
