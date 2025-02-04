@@ -253,15 +253,7 @@ const SwapTransfer = ({
                 </Typography>
               )}
             </Paper>
-          </Grid>
-        </Grid>
-      </Box>
-
-      <Box sx={{ display: 'flex', justifyContent: 'center', padding: 2 }}>
-        <Grid container spacing={2}>
-          {/* Staking Section */}
-          <Grid item xs={12} md={5}>
-            <Paper sx={{ padding: 2, textAlign: 'center' }}>
+            <Paper sx={{ padding: 2, textAlign: 'center', marginTop: 4 }}>
               <Typography variant="h6">Staking Menu</Typography>
               <Box sx={{ marginBottom: 2 }}>
                 <TextField

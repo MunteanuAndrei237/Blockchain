@@ -5,6 +5,7 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
+import InputAdornment from '@mui/material/InputAdornment';
 
 const Header = ({ walletAddress, ethBalance, tokenBalance, maxGasCost, changeMaxGasCost }) => {
   return (
@@ -66,6 +67,11 @@ const Header = ({ walletAddress, ethBalance, tokenBalance, maxGasCost, changeMax
                     '& .MuiInput-underline:after': {
                       borderBottomColor: 'white', // White underline after focus
                     },
+                }}
+                slotProps={{
+                  input: {
+                    endAdornment: <InputAdornment position="end" sx={{ color: 'white' }}>gwei</InputAdornment>,
+                  },
                 }}
               />
             </Box>
