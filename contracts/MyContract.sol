@@ -33,10 +33,13 @@ contract MyContract {
     }
 
     // Anyone can mint tokens
-    function mint(address to, uint256 amount) internal {
+    function mint(address to, uint256 amount) public {
         require(to != address(0), "Cannot mint to the zero address.");
         totalSupply += amount;
         balanceOf[to] += amount;
+
+        // Emit Transfer event
+        emit Transfer(address(0), to, amount);
     }
 
     // Transfer function (ERC-20 standard)
@@ -116,7 +119,7 @@ contract MyContract {
         return problemsSolved[user];
     }
 
-    function calculateEthToLeet(uint256 gweiAmount, uint256 ethPriceInUSD) public pure returns (uint256) {
+    function calculateEthToLeet(uint256 gweiAmount, uint256 ethPriceInUSD) internal pure returns (uint256) {
         // Convert ETH to LEET where 1 LEET = 1 cent (0.01 USD)
         uint256 ethAmount = gweiAmount / 10 ** 18;
         uint256 leetUnits = ethAmount * 10 ** 5;
@@ -154,4 +157,5 @@ contract MyContract {
     event GetRewards(address indexed receiver, uint256 amount, uint256 problemId, uint256 solvingTime);
     event SwapEthToLeet(address indexed user, uint256 ethAmount, uint256 leetAmount);
     event EtherReceived(address indexed sender, uint256 value);
+    event Mint(address indexed to, uint256 amount);
 }

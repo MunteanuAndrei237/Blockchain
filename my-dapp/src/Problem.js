@@ -89,7 +89,7 @@ const Problem = ({ contract, signer, maxGasCost, updateBalance, walletAddress })
             const endTime = performance.now(); // End time
 
             // Calculate execution time
-            const timeTaken = 100;
+            const timeTaken = 50;
 
             // Display results
             if (allTestsPassed) {
@@ -111,7 +111,7 @@ const Problem = ({ contract, signer, maxGasCost, updateBalance, walletAddress })
     };
 
     const getRewards = async (maxReward, solvingTime, bestTimeMs) => {
-        if(solvingTime < userLowestTime) {
+        if(userLowestTime && solvingTime >= userLowestTime) {
             return;
         }
 
